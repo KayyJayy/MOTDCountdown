@@ -14,12 +14,12 @@ public class DurationFormatter {
         String tmp;
         if(suppressLeadingZeroElements) {
             duration = " " + duration;
-            tmp = StringUtils.replaceOnce(duration, " 0 days", "");
+            tmp = StringUtils.replaceOnce(duration, " 0 days,", "");
             if(tmp.length() != duration.length()) {
                 duration = tmp;
-                tmp = StringUtils.replaceOnce(tmp, " 0 hours", "");
+                tmp = StringUtils.replaceOnce(tmp, " 0 hours,", "");
                 if(tmp.length() != duration.length()) {
-                    tmp = StringUtils.replaceOnce(tmp, " 0 minutes", "");
+                    tmp = StringUtils.replaceOnce(tmp, " 0 minutes,", "");
                     duration = tmp;
                     if(tmp.length() != tmp.length()) {
                         duration = StringUtils.replaceOnce(tmp, " 0 seconds", "");
@@ -36,12 +36,12 @@ public class DurationFormatter {
             tmp = StringUtils.replaceOnce(duration, " 0 seconds", "");
             if(tmp.length() != duration.length()) {
                 duration = tmp;
-                tmp = StringUtils.replaceOnce(tmp, " 0 minutes", "");
+                tmp = StringUtils.replaceOnce(tmp, " 0 minutes,", "");
                 if(tmp.length() != duration.length()) {
                     duration = tmp;
-                    tmp = StringUtils.replaceOnce(tmp, " 0 hours", "");
+                    tmp = StringUtils.replaceOnce(tmp, " 0 hours,", "");
                     if(tmp.length() != duration.length()) {
-                        duration = StringUtils.replaceOnce(tmp, " 0 days", "");
+                        duration = StringUtils.replaceOnce(tmp, " 0 days,", "");
                     }
                 }
             }
