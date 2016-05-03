@@ -1,0 +1,14 @@
+Generic:
+  NoPermission: "&cYou don't have permission to perform this action."
+Command:
+  Invalid-Usage: "Invalid Usage! /motdcountdown <settime | setrunningmotd | setcompletedmotd> <arguments>"
+  SetTime:
+    Output: "Countdown has been set to {time}"
+    Invalid-Usage: "Invalid usage! /motdcountdown settime <time>"
+    Invalid-Input: "Invalid input."
+  SetRunningMOTD:
+    Invalid-Usage: "Invalid Usage! /motdcountdown setrunningmotd <striiiing>"
+    Output: "Updated running motd."
+  SetCompletedMOTD:
+    Invalid-Usage: "Invalid Usage! /motdcountdown setcompletedmotd <striiiiiinging> hi ryan"
+    Output: "Updated completed motd."
