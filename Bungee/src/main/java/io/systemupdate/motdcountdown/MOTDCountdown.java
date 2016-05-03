@@ -20,6 +20,7 @@
 
 package io.systemupdate.motdcountdown;
 
+import io.systemupdate.motdcountdown.command.MOTDCountdownCommand;
 import io.systemupdate.motdcountdown.listener.ProxyPingListener;
 import io.systemupdate.motdcountdown.util.Messages;
 import lombok.Getter;
@@ -37,16 +38,8 @@ public class MOTDCountdown extends ConfigurablePlugin{
     public void onEnable(){
         loadConfig();
 
-
         getProxy().getPluginManager().registerListener(this, new ProxyPingListener(this));
-
-
-        /*
-        getProxy().getPluginManager().registerListener(this, new ChatListener());
-        getProxy().getPluginManager().registerCommand(this, new prefix());
-         */
-        //register event
-        //register command
+        getProxy().getPluginManager().registerCommand(this, new MOTDCountdownCommand(this));
     }
 
     @Override
