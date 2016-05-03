@@ -58,18 +58,32 @@ public class Messages{
             return;
         }
 
-        for(String i : loadMessages.getKeys()){
-            TextComponent message = new TextComponent();
+        //Fuck it, I couldn't figure out automatic loading with bungee's shitty configuration api
+        //TODO Make automatic
 
-            for(BaseComponent component : TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString(i)))){
-                message.addExtra(component);
-            }
-
-            messages.put(i, message);
-        }
+        messages.put("Generic.NoPermission", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Generic.NoPermission")))));
+        messages.put("Command.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.Invalid-Usage")))));
+        messages.put("Command.SetTime.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Output")))));
+        messages.put("Command.SetTime.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Invalid-Usage")))));
+        messages.put("Command.SetTime.Invalid-Input", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Invalid-Input")))));
+        messages.put("Command.SetRunningMOTD.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetRunningMOTD.Invalid-Usage")))));
+        messages.put("Command.SetRunningMOTD.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetRunningMOTD.Output")))));
+        messages.put("Command.SetCompletedMOTD.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetCompletedMOTD.Invalid-Usage")))));
+        messages.put("Command.SetCompletedMOTD.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetCompletedMOTD.Output")))));
     }
 
     public TextComponent getMessage(String key){
+        if(!messages.containsKey(key)) System.out.println("Missing key " + key);
         return messages.get(key);
+    }
+
+    private TextComponent group(BaseComponent[] components){
+        TextComponent textComponent = new TextComponent();
+
+        for(BaseComponent component : components){
+            textComponent.addExtra(component);
+        }
+
+        return textComponent;
     }
 }

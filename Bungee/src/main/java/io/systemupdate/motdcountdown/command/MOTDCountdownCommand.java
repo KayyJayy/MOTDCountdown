@@ -25,7 +25,6 @@ import io.systemupdate.motdcountdown.util.DurationFormatter;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
-import org.apache.commons.lang.time.DurationFormatUtils;
 
 public class MOTDCountdownCommand extends Command{
 
@@ -60,10 +59,10 @@ public class MOTDCountdownCommand extends Command{
                     return;
                 }
 
-                TextComponent message = plugin.getMessages().getMessage("Command.SetTime.Output");
-                message.setText(message.getText().replace("{time}", DurationFormatUtils.formatDurationWords(duration, true, true)));
+                //TextComponent message = plugin.getMessages().getMessage("Command.SetTime.Output");
+                //message.setText(message.getText().replace("{time}", DurationFormatUtils.formatDurationWords(duration, true, true)));
 
-                sender.sendMessage(message);
+                sender.sendMessage(new TextComponent("Set time"));
                 plugin.setEndTime(duration + System.currentTimeMillis());
                 break;
             case "setrunningmotd":
