@@ -32,7 +32,7 @@ public class MOTDCountdownCommand extends Command{
     private MOTDCountdown plugin;
 
     public MOTDCountdownCommand(MOTDCountdown plugin){
-        super("motdcountdown", "motdcountdown.command", "motdcd");
+        super("motdcountdown", "motdcountdown.command", "motd", "motdcd", "motdc");
         this.plugin = plugin;
     }
 
