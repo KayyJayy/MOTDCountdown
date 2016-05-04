@@ -54,7 +54,7 @@
     <build>
         <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
 
-        <defaultGoal>package install</defaultGoal>
+        <defaultGoal>install</defaultGoal>
         <finalName>MOTDCountdown-${project.name}</finalName>
 
         <resources>
