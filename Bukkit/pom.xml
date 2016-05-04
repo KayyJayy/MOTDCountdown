@@ -29,7 +29,7 @@
 
     <parent>
         <artifactId>MOTDCountdown</artifactId>
-        <groupId>io.systemupdate</groupId>
+        <groupId>io.systemupdate.motdcountdown</groupId>
         <version>1.0.0</version>
     </parent>
 

@@ -29,7 +29,7 @@
 
     <parent>
         <artifactId>MOTDCountdown</artifactId>
-        <groupId>io.systemupdate</groupId>
+        <groupId>io.systemupdate.motdcountdown</groupId>
         <version>1.0.0</version>
     </parent>
 
@@ -47,13 +47,6 @@
             <version>1.7-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.4</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -69,29 +62,5 @@
                 </includes>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <relocations>
-                                <relocation>
-                                    <pattern>org.apache.commons.lang</pattern>
-                                    <shadedPattern>internal.lang</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 </project>

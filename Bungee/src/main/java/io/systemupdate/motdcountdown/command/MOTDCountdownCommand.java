@@ -21,7 +21,7 @@
 package io.systemupdate.motdcountdown.command;
 
 import io.systemupdate.motdcountdown.MOTDCountdown;
-import io.systemupdate.motdcountdown.util.DurationFormatter;
+import compact.org.apache.commons.lang.time.DurationFormatter;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
