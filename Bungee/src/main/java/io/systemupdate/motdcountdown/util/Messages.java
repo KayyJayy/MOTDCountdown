@@ -27,7 +27,6 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,11 +41,7 @@ public class Messages{
         File messagesFile = new File(plugin.getDataFolder(), "messages.yml");
 
         if(!messagesFile.exists()){
-            try{
-                FileUtils.copyURLToFile(getClass().getResource("/messages.yml"), new File(plugin.getDataFolder(), "messages.yml"));
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+            plugin.saveResource("/messages.yml", false);
         }
 
         Configuration loadMessages;

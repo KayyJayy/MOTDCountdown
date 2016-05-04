@@ -49,12 +49,6 @@
         </dependency>
 
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.4</version>
@@ -89,10 +83,6 @@
                         </goals>
                         <configuration>
                             <relocations>
-                                <relocation>
-                                    <pattern>org.apache.commons.io</pattern>
-                                    <shadedPattern>internal.io</shadedPattern>
-                                </relocation>
                                 <relocation>
                                     <pattern>org.apache.commons.lang</pattern>
                                     <shadedPattern>internal.lang</shadedPattern>

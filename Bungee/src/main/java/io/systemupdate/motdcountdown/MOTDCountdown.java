@@ -24,10 +24,8 @@ import io.systemupdate.motdcountdown.command.MOTDCountdownCommand;
 import io.systemupdate.motdcountdown.listener.ProxyPingListener;
 import io.systemupdate.motdcountdown.util.Messages;
 import lombok.Getter;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
-import java.io.IOException;
 
 public class MOTDCountdown extends ConfigurablePlugin{
 
@@ -51,11 +49,7 @@ public class MOTDCountdown extends ConfigurablePlugin{
         File configFile = new File(getDataFolder(), "config.yml");
 
         if(!configFile.exists()){
-            try{
-                FileUtils.copyURLToFile(getClass().getResource("/config.yml"), new File(getDataFolder(), "config.yml"));
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+            saveResource("/config.yml", false);
         }
 
         super.loadConfig();
