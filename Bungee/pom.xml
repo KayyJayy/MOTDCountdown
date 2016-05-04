@@ -49,18 +49,7 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <targetPath>.</targetPath>
-                <filtering>true</filtering>
-                <directory>${basedir}/src/main/resources/</directory>
-
-                <includes>
-                    <include>**/*.txt</include>
-                    <include>**/*.yml</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
+    <properties>
+        <project.lowerCaseArtifactId>bungee</project.lowerCaseArtifactId>
+    </properties>
 </project>

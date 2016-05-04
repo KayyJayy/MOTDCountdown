@@ -18,11 +18,11 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown;
+package io.systemupdate.motdcountdown.bukkit;
 
-import io.systemupdate.motdcountdown.command.MOTDCountdownCommand;
-import io.systemupdate.motdcountdown.listener.ServerListPingListener;
-import io.systemupdate.motdcountdown.util.Messages;
+import io.systemupdate.motdcountdown.bukkit.listener.ServerListPingListener;
+import io.systemupdate.motdcountdown.bukkit.util.Messages;
+import io.systemupdate.motdcountdown.bukkit.command.MOTDCountdownCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MOTDCountdown extends JavaPlugin{

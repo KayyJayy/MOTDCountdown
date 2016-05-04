@@ -18,7 +18,7 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown.util;
+package io.systemupdate.motdcountdown.bukkit.util;
 
 import org.apache.commons.lang.StringUtils;
 

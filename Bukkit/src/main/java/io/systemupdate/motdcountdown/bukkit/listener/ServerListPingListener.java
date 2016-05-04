@@ -18,10 +18,10 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown.listener;
+package io.systemupdate.motdcountdown.bukkit.listener;
 
-import io.systemupdate.motdcountdown.MOTDCountdown;
-import io.systemupdate.motdcountdown.util.DurationFormatter;
+import io.systemupdate.motdcountdown.bukkit.MOTDCountdown;
+import io.systemupdate.motdcountdown.bukkit.util.DurationFormatter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

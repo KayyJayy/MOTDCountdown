@@ -18,7 +18,7 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown;
+package io.systemupdate.motdcountdown.bungee;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;

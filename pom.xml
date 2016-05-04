@@ -32,6 +32,7 @@
     <modules>
         <module>Bukkit</module>
         <module>Bungee</module>
+        <module>Universal</module>
     </modules>
 
     <repositories>
@@ -53,7 +54,7 @@
     <build>
         <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
 
-        <defaultGoal>package</defaultGoal>
+        <defaultGoal>package install</defaultGoal>
         <finalName>MOTDCountdown-${project.name}</finalName>
 
         <resources>
@@ -63,7 +64,6 @@
                 <directory>${basedir}/src/main/resources/</directory>
 
                 <includes>
-                    <include>**/*.txt</include>
                     <include>**/*.yml</include>
                 </includes>
             </resource>

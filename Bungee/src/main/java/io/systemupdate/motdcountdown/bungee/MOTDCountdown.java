@@ -18,11 +18,11 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown;
+package io.systemupdate.motdcountdown.bungee;
 
-import io.systemupdate.motdcountdown.command.MOTDCountdownCommand;
-import io.systemupdate.motdcountdown.listener.ProxyPingListener;
-import io.systemupdate.motdcountdown.util.Messages;
+import io.systemupdate.motdcountdown.bungee.util.Messages;
+import io.systemupdate.motdcountdown.bungee.command.MOTDCountdownCommand;
+import io.systemupdate.motdcountdown.bungee.listener.ProxyPingListener;
 import lombok.Getter;
 
 import java.io.File;

@@ -18,9 +18,9 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown.util;
+package io.systemupdate.motdcountdown.bungee.util;
 
-import io.systemupdate.motdcountdown.MOTDCountdown;
+import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;

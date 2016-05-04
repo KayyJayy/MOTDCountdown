@@ -18,34 +18,28 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown.command;
+package io.systemupdate.motdcountdown.bungee.command;
 
-import io.systemupdate.motdcountdown.MOTDCountdown;
-import io.systemupdate.motdcountdown.util.DurationFormatter;
-import org.apache.commons.lang.time.DurationFormatUtils;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
+import compact.org.apache.commons.lang.time.DurationFormatter;
+import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.plugin.Command;
 
-public class MOTDCountdownCommand implements CommandExecutor{
+public class MOTDCountdownCommand extends Command{
 
     private MOTDCountdown plugin;
 
     public MOTDCountdownCommand(MOTDCountdown plugin){
+        super("motdcountdown", "motdcountdown.command", "motd", "motdcd", "motdc");
         this.plugin = plugin;
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String args[]){
-        if(!sender.hasPermission("motdcountdown.command") && sender instanceof Player){
-            sender.sendMessage(plugin.getMessages().getText("Generic.NoPermission"));
-            return true;
-        }
-
+    public void execute(CommandSender sender, String[] args) {
         if(!(args.length >= 1)){
-            sender.sendMessage(plugin.getMessages().getText("Command.Invalid-Usage"));
-            return true;
+            sender.sendMessage(plugin.getMessages().getMessage("Command.Invalid-Usage"));
+            return;
         }
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -54,53 +48,54 @@ public class MOTDCountdownCommand implements CommandExecutor{
         switch (subcommand.toLowerCase()){
             case "settime":
                 if(!(args.length >= 2)){
-                    sender.sendMessage(plugin.getMessages().getText("Command.SetTime.Invalid-Usage"));
-                    return true;
+                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetTime.Invalid-Usage"));
+                    return;
                 }
 
                 long duration = DurationFormatter.parse(args[1]);
 
                 if(duration == -1){
-                    sender.sendMessage(plugin.getMessages().getText("Command.SetTime.Invalid-Input"));
-                    return true;
+                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetTime.Invalid-Input"));
+                    return;
                 }
 
-                sender.sendMessage(plugin.getMessages().getText("Command.SetTime.Output")
-                        .replace("{time}", DurationFormatUtils.formatDurationWords(duration, true, true)));
+                //TextComponent message = plugin.getMessages().getMessage("Command.SetTime.Output");
+                //message.setText(message.getText().replace("{time}", DurationFormatUtils.formatDurationWords(duration, true, true)));
+
+                sender.sendMessage(new TextComponent("Set time"));
                 plugin.setEndTime(duration + System.currentTimeMillis());
                 break;
             case "setrunningmotd":
                 if(!(args.length > 1)){
-                    sender.sendMessage(plugin.getMessages().getText("Command.SetRunningMOTD.Invalid-Usage"));
-                    return true;
+                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetRunningMOTD.Invalid-Usage"));
+                    return;
                 }
 
                 for(int i = 1; i < args.length; i++){
                     stringBuilder.append(args[i]).append(" ");
                 }
 
-                sender.sendMessage(plugin.getMessages().getText("Command.SetRunningMOTD.Output"));
+                sender.sendMessage(plugin.getMessages().getMessage("Command.SetRunningMOTD.Output"));
                 plugin.setRunningMOTD(stringBuilder.toString()
                         .replace("\\n", "{newLine}"));
                 break;
             case "setcompletedmotd":
                 if(!(args.length > 1)){
-                    sender.sendMessage(plugin.getMessages().getText("Command.SetCompletedMOTD.Invalid-Usage"));
-                    return true;
+                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Invalid-Usage"));
+                    return;
                 }
 
                 for(int i = 1; i < args.length; i++){
                     stringBuilder.append(args[i]).append(" ");
                 }
 
-                sender.sendMessage(plugin.getMessages().getText("Command.SetCompletedMOTD.Output"));
+                sender.sendMessage(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Output"));
                 plugin.setCompletedMOTD(stringBuilder.toString()
                         .replace("\\n", "{newLine}"));
                 break;
             default:
-                sender.sendMessage(plugin.getMessages().getText("Command.Invalid-Usage"));
+                sender.sendMessage(plugin.getMessages().getMessage("Command.Invalid-Usage"));
                 break;
         }
-        return false;
     }
 }

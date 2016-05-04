@@ -1,4 +1,0 @@
-name: MOTDCountdown
-main: io.systemupdate.motdcountdown.MOTDCountdown
-version: ${project.version}-b${BUILD_NUMBER}
-author: SystemUpdate <admin@systemupdate.io>

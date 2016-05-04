@@ -18,9 +18,9 @@
  *   in this Software without prior written authorization of the copyright holder.
  */
 
-package io.systemupdate.motdcountdown.listener;
+package io.systemupdate.motdcountdown.bungee.listener;
 
-import io.systemupdate.motdcountdown.MOTDCountdown;
+import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
 import compact.org.apache.commons.lang.time.DurationFormatter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.event.ProxyPingEvent;
