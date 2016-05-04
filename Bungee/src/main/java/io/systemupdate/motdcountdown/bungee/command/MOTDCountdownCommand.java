@@ -20,8 +20,8 @@
 
 package io.systemupdate.motdcountdown.bungee.command;
 
-import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
 import compact.org.apache.commons.lang.time.DurationFormatter;
+import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.plugin.Command;
@@ -38,7 +38,7 @@ public class MOTDCountdownCommand extends Command{
     @Override
     public void execute(CommandSender sender, String[] args) {
         if(!(args.length >= 1)){
-            sender.sendMessage(plugin.getMessages().getMessage("Command.Invalid-Usage"));
+            sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.Invalid-Usage")));
             return;
         }
 
@@ -48,26 +48,24 @@ public class MOTDCountdownCommand extends Command{
         switch (subcommand.toLowerCase()){
             case "settime":
                 if(!(args.length >= 2)){
-                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetTime.Invalid-Usage"));
+                    sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetTime.Invalid-Usage")));
                     return;
                 }
 
                 long duration = DurationFormatter.parse(args[1]);
 
                 if(duration == -1){
-                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetTime.Invalid-Input"));
+                    sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetTime.Invalid-Input")));
                     return;
                 }
 
-                //TextComponent message = plugin.getMessages().getMessage("Command.SetTime.Output");
-                //message.setText(message.getText().replace("{time}", DurationFormatUtils.formatDurationWords(duration, true, true)));
-
-                sender.sendMessage(new TextComponent("Set time"));
+                sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetTime.Output")
+                        .replace("{time}", DurationFormatter.formatDurationWords(duration, true, true))));
                 plugin.setEndTime(duration + System.currentTimeMillis());
                 break;
             case "setrunningmotd":
                 if(!(args.length > 1)){
-                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetRunningMOTD.Invalid-Usage"));
+                    sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetRunningMOTD.Invalid-Usage")));
                     return;
                 }
 
@@ -75,13 +73,13 @@ public class MOTDCountdownCommand extends Command{
                     stringBuilder.append(args[i]).append(" ");
                 }
 
-                sender.sendMessage(plugin.getMessages().getMessage("Command.SetRunningMOTD.Output"));
+                sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetRunningMOTD.Output")));
                 plugin.setRunningMOTD(stringBuilder.toString()
                         .replace("\\n", "{newLine}"));
                 break;
             case "setcompletedmotd":
                 if(!(args.length > 1)){
-                    sender.sendMessage(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Invalid-Usage"));
+                    sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Invalid-Usage")));
                     return;
                 }
 
@@ -89,12 +87,12 @@ public class MOTDCountdownCommand extends Command{
                     stringBuilder.append(args[i]).append(" ");
                 }
 
-                sender.sendMessage(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Output"));
+                sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.SetCompletedMOTD.Output")));
                 plugin.setCompletedMOTD(stringBuilder.toString()
                         .replace("\\n", "{newLine}"));
                 break;
             default:
-                sender.sendMessage(plugin.getMessages().getMessage("Command.Invalid-Usage"));
+                sender.sendMessage(TextComponent.fromLegacyText(plugin.getMessages().getMessage("Command.Invalid-Usage")));
                 break;
         }
     }

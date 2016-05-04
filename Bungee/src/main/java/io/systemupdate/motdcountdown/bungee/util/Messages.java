@@ -22,19 +22,16 @@ package io.systemupdate.motdcountdown.bungee.util;
 
 import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Messages{
 
-    private HashMap<String, TextComponent> messages = new HashMap<>();
+    private Configuration messages;
 
     public Messages(MOTDCountdown plugin){
         plugin.getDataFolder().mkdir();
@@ -44,41 +41,15 @@ public class Messages{
             plugin.saveResource("/messages.yml", false);
         }
 
-        Configuration loadMessages;
-
-        try{
-            loadMessages = ConfigurationProvider.getProvider(YamlConfiguration.class).load(messagesFile);
+         try{
+            messages = ConfigurationProvider.getProvider(YamlConfiguration.class).load(messagesFile);
         }catch(IOException e){
             e.printStackTrace();
             return;
         }
-
-        //Fuck it, I couldn't figure out automatic loading with bungee's shitty configuration api
-        //TODO Make automatic
-
-        messages.put("Generic.NoPermission", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Generic.NoPermission")))));
-        messages.put("Command.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.Invalid-Usage")))));
-        messages.put("Command.SetTime.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Output")))));
-        messages.put("Command.SetTime.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Invalid-Usage")))));
-        messages.put("Command.SetTime.Invalid-Input", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetTime.Invalid-Input")))));
-        messages.put("Command.SetRunningMOTD.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetRunningMOTD.Invalid-Usage")))));
-        messages.put("Command.SetRunningMOTD.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetRunningMOTD.Output")))));
-        messages.put("Command.SetCompletedMOTD.Invalid-Usage", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetCompletedMOTD.Invalid-Usage")))));
-        messages.put("Command.SetCompletedMOTD.Output", group(TextComponent.fromLegacyText(ChatColor.translateAlternateColorCodes('&', loadMessages.getString("Command.SetCompletedMOTD.Output")))));
     }
 
-    public TextComponent getMessage(String key){
-        if(!messages.containsKey(key)) System.out.println("Missing key " + key);
-        return messages.get(key);
-    }
-
-    private TextComponent group(BaseComponent[] components){
-        TextComponent textComponent = new TextComponent();
-
-        for(BaseComponent component : components){
-            textComponent.addExtra(component);
-        }
-
-        return textComponent;
+    public String getMessage(String key){
+        return ChatColor.translateAlternateColorCodes('&', messages.getString(key));
     }
 }
