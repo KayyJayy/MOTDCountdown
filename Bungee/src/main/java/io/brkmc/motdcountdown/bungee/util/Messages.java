@@ -16,9 +16,9 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bungee.util;
+package io.brkmc.motdcountdown.bungee.util;
 
-import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
+import io.brkmc.motdcountdown.bungee.MOTDCountdown;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;

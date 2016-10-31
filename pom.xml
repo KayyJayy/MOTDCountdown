@@ -22,10 +22,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.systemupdate.motdcountdown</groupId>
+    <groupId>io.brkmc.motdcountdown</groupId>
     <artifactId>MOTDCountdown</artifactId>
+
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <modules>
         <module>Bukkit</module>
@@ -33,26 +38,7 @@
         <module>Universal</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>jenkins-repo</id>
-            <url>http://ci.pots.pw/userContent/maven-repository/</url>
-        </repository>
-    </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
     <build>
-        <sourceDirectory>${basedir}/src/main/java/</sourceDirectory>
-
-        <defaultGoal>clean install</defaultGoal>
         <finalName>MOTDCountdown-${project.name}</finalName>
 
         <resources>
@@ -86,7 +72,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Built-By>PrimeHCF</Built-By>
+                            <Built-By>Break Technology</Built-By>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -94,7 +80,12 @@
         </plugins>
     </build>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

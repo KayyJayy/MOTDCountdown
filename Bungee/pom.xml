@@ -46,8 +46,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <properties>
-        <project.lowerCaseArtifactId>bungee</project.lowerCaseArtifactId>
-    </properties>
 </project>

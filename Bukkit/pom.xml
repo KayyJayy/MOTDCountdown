@@ -27,20 +27,15 @@
 
     <parent>
         <artifactId>MOTDCountdown</artifactId>
-        <groupId>io.systemupdate.motdcountdown</groupId>
+        <groupId>io.brkmc.motdcountdown</groupId>
         <version>1.0.0</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>org.github.paperspigot</groupId>
-            <artifactId>paperspigot</artifactId>
-            <version>1.7.10-R0.1-CUSTOM</version>
-            <scope>provided</scope>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
-    <properties>
-        <project.lowerCaseArtifactId>bukkit</project.lowerCaseArtifactId>
-    </properties>
 </project>

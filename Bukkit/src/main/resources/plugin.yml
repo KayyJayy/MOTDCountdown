@@ -1,5 +1,5 @@
 name: ${project.artifactId}
-main: ${project.parent.groupId}.${project.lowerCaseArtifactId}.${project.parent.artifactId}
+main: ${project.parent.groupId}.bukkit.${project.parent.artifactId}
 version: ${project.version}-b${BUILD_NUMBER}
 author: SystemUpdate <admin@systemupdate.io>
 commands:

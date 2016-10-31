@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bukkit.util;
+package io.brkmc.motdcountdown.bukkit.util;
 
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -29,11 +29,14 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 
 public class Messages {
+
     private File file;
     private YamlConfiguration config;
     private HashMap<String, String> messages = new HashMap<String, String>();
 
     private Plugin plugin;
+
+    //Yo my dude this file is dated lmao
 
     public Messages(Plugin plugin, String fileName){
         this.plugin = plugin;

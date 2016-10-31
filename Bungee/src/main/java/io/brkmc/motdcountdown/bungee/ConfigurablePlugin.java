@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bungee;
+package io.brkmc.motdcountdown.bungee;
 
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -28,7 +28,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Level;
 
-public class ConfigurablePlugin extends Plugin{ //TODO Internal saveResource
+public class ConfigurablePlugin extends Plugin{
 
     private Configuration configuration;
     private File configFile;

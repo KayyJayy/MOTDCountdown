@@ -16,10 +16,10 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bukkit.listener;
+package io.brkmc.motdcountdown.bukkit.listener;
 
-import io.systemupdate.motdcountdown.bukkit.MOTDCountdown;
-import io.systemupdate.motdcountdown.bukkit.util.DurationFormatter;
+import io.brkmc.motdcountdown.bukkit.MOTDCountdown;
+import io.brkmc.motdcountdown.bukkit.util.DurationFormatter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

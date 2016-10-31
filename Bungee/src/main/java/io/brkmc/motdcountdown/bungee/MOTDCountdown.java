@@ -16,11 +16,11 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bungee;
+package io.brkmc.motdcountdown.bungee;
 
-import io.systemupdate.motdcountdown.bungee.util.Messages;
-import io.systemupdate.motdcountdown.bungee.command.MOTDCountdownCommand;
-import io.systemupdate.motdcountdown.bungee.listener.ProxyPingListener;
+import io.brkmc.motdcountdown.bungee.command.MOTDCountdownCommand;
+import io.brkmc.motdcountdown.bungee.listener.ProxyPingListener;
+import io.brkmc.motdcountdown.bungee.util.Messages;
 import lombok.Getter;
 
 import java.io.File;
@@ -61,22 +61,17 @@ public class MOTDCountdown extends ConfigurablePlugin{
 
     public void setEndTime(long endTime){
         this.endTime = endTime;
-
         getConfig().set("End-Time", endTime);
-        saveConfigAsync();
+        saveConfig();
     }
 
     public void setRunningMOTD(String runningMOTD){
         getConfig().set("MOTD.Running", runningMOTD);
-        saveConfigAsync();
+        saveConfig();
     }
 
     public void setCompletedMOTD(String completedMOTD){
         getConfig().set("MOTD.Completed", completedMOTD);
-        saveConfigAsync();
-    }
-
-    private void saveConfigAsync(){
-        getProxy().getScheduler().runAsync(this, this::saveConfig);
+        saveConfig();
     }
 }

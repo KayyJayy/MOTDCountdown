@@ -16,9 +16,9 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bungee.listener;
+package io.brkmc.motdcountdown.bungee.listener;
 
-import io.systemupdate.motdcountdown.bungee.MOTDCountdown;
+import io.brkmc.motdcountdown.bungee.MOTDCountdown;
 import compact.org.apache.commons.lang.time.DurationFormatter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.event.ProxyPingEvent;

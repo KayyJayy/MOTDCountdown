@@ -16,17 +16,17 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bukkit;
+package io.brkmc.motdcountdown.bukkit;
 
-import io.systemupdate.motdcountdown.bukkit.listener.ServerListPingListener;
-import io.systemupdate.motdcountdown.bukkit.util.Messages;
-import io.systemupdate.motdcountdown.bukkit.command.MOTDCountdownCommand;
+import io.brkmc.motdcountdown.bukkit.command.MOTDCountdownCommand;
+import io.brkmc.motdcountdown.bukkit.listener.ServerListPingListener;
+import io.brkmc.motdcountdown.bukkit.util.Messages;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@lombok.Getter
 public class MOTDCountdown extends JavaPlugin{
 
     private long endTime = -1L;
-
     private Messages messages;
 
     @Override
@@ -45,38 +45,23 @@ public class MOTDCountdown extends JavaPlugin{
             endTime = getConfig().getLong("End-Time");
         }
 
-        this.getServer().getPluginManager().registerEvents(new ServerListPingListener(this), this);
+        getServer().getPluginManager().registerEvents(new ServerListPingListener(this), this);
         getCommand("motdcountdown").setExecutor(new MOTDCountdownCommand(this));
-    }
-
-    public long getEndTime(){
-        return endTime;
-    }
-
-    public Messages getMessages(){
-        return messages;
     }
 
     public void setEndTime(long endTime){
         this.endTime = endTime;
         getConfig().set("End-Time", endTime);
-
-        saveConfigAsync();
+        saveConfig();
     }
 
     public void setRunningMOTD(String runningMOTD){
         getConfig().set("MOTD.Running", runningMOTD);
-
-        saveConfigAsync();
+        saveConfig();
     }
 
     public void setCompletedMOTD(String completedMOTD){
         getConfig().set("MOTD.Completed", completedMOTD);
-
-        saveConfigAsync();
-    }
-
-    private void saveConfigAsync(){
-        this.getServer().getScheduler().runTaskAsynchronously(this, () -> saveConfig());
+        saveConfig();
     }
 }

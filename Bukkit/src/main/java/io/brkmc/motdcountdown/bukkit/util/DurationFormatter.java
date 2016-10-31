@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.systemupdate.motdcountdown.bukkit.util;
+package io.brkmc.motdcountdown.bukkit.util;
 
 import org.apache.commons.lang.StringUtils;
 
