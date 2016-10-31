@@ -27,7 +27,7 @@
 
     <parent>
         <artifactId>MOTDCountdown</artifactId>
-        <groupId>io.systemupdate.motdcountdown</groupId>
+        <groupId>io.brkmc.motdcountdown</groupId>
         <version>1.0.0</version>
     </parent>
 
