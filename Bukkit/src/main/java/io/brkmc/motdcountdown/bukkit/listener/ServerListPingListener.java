@@ -44,6 +44,6 @@ public class ServerListPingListener implements Listener{
 
         event.setMotd(ChatColor.translateAlternateColorCodes('&', motdCountdown.getConfig().getString("MOTD.Running")
                 .replace("{newLine}", "\n")
-                .replace("{time}", DurationFormatter.formatDurationWords(motdCountdown.getEndTime() - System.currentTimeMillis(), true, true))));
+                .replace("{time}", DurationFormatter.formatDurationWords(motdCountdown.getEndTime() - System.currentTimeMillis()))));
     }
 }
